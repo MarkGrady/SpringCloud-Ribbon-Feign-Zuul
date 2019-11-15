@@ -1,0 +1,27 @@
+server:
+  port: 10000
+spring:
+  application:
+    name: service-zuul
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+#zuul:
+#  routes:
+#    a:
+#      path:
+#        serviceId:
+#    b:
+#      path:
+#        serviceId:
+#默认路由
+zuul:
+  host:
+    connection-request-timeout-millis: 60000
+    connect-timeout-millis: 60000
+    socket-timeout-millis: 40000
+ribbon:
+  ReadTimeout: 10000
+  ConnectionTimeout: 10000

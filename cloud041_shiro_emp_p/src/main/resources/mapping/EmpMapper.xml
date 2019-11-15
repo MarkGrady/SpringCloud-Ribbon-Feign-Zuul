@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.qf.cloud041_shiro_emp_p.mapper.EmpPMapper" >
+    <resultMap id="empMap" type="com.qf.pojo.Emp">
+        <id property="empno" column="empno"></id>
+        <result property="ename" column="ename"></result>
+        <result property="sal" column="sal"></result>
+        <result property="job" column="job"></result>
+        <result property="deptno" column="deptno"></result>
+    </resultMap>
+    <select id="findAll" resultMap="empMap">
+        select * from emp
+    </select>
+    <select id="findOne" resultMap="empMap">
+        select * from emp where empno=#{empno}
+    </select>
+    <insert id="saveEmp">
+        insert into emp(empno,ename,sal,job,deptno) values (empno=#{empno},ename=#{ename},sal=#{sal},job=#{job},deptno=#{deptno})
+    </insert>
+    <update id="updateEmp">
+        update emp set empno=#{empno},ename=#{ename},sal=#{sal},job=#{job},deptno=#{deptno} where empno=#{empno}
+    </update>
+    <delete id="deleteEmp">
+        delete from emp where empno=#{empno}
+    </delete>
+</mapper>
